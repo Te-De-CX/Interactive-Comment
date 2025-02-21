@@ -1,9 +1,34 @@
 import React, { useState } from 'react';
+import Reply from './Reply';
 
 const Comments: React.FC = () => {
+
+    interface Comment {
+        id: number,
+        name: string,
+        time_uploaded: string,
+        comment: string,
+        img:string,
+        likes: number
+
+
+    }
+    interface SubComment {
+        id: number,
+        comment_id: number,
+        name: string,
+        time_uploaded: string,
+        comment: string,
+        img:string,
+        likes: number
+
+    }
+
     const [activeCommentId, setActiveCommentId] = useState<number | null>(null);
 
-    const comments = [
+    const subcomments: SubComment[] = []
+
+    const comments: Comment[] = [
         {
             id: 1,
             name: "amyrobson",
@@ -58,10 +83,11 @@ const Comments: React.FC = () => {
                             </div>
                         </div>
                         <div>
-                            {activeCommentId === comment.id && "Hello World"}
+                            {activeCommentId === comment.id && (<Reply />)}
                         </div>
                     </div>
                 ))}
+                <Reply />
             </section>
         </>
     );
