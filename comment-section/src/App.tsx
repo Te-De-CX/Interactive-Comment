@@ -1,10 +1,10 @@
 import React from "react"
-import Layout from "./components/Layout";
+import Comment from "./Comment"
 
  const App:React.FC = () => {
   return (
     <>
-      <Layout />
+      <Comment />
     </>
   )
 }
